@@ -1,0 +1,37 @@
+html, body {
+	font-family: 'Quicksand', sans-serif;
+  	font-weight: normal;
+  	position: relative; 
+}
+
+body {
+	padding: 50px 0px 0px 0px;
+	display: flex;
+  	flex-direction: column;
+  	min-height: 100vh; 
+}
+
+.bordas {
+	border: 1px solid blue;
+}
+
+.row-footer	{
+	background-color: #57455c;
+}
+
+.corpo{
+	background-color: floralwhite;
+}
+
+.navbar-dark{
+	background-color: #57455c;
+}
+
+.btn{
+	padding: 0px 10px 0px 10px;
+	background-color: #8A0829;
+}
+
+.jumbotron{
+	background-color: #424242;
+}
