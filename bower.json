@@ -1,0 +1,26 @@
+{
+  "name": "votasp",
+  "homepage": "https://github.com/wab030/votasp",
+  "authors": [
+    "André Luís Bordignon <albordignon@gmail.com>"
+  ],
+  "description": "Aplicação para ajudar eleitores e eleitoras escolherem candidatos e candidatas a deputado na eleição de 2018.",
+  "main": "index.html",
+  "keywords": [
+    "eleições",
+    "política"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "font-awesome": "^5.0.9",
+    "angular": "^1.6.9"
+  }
+}
