@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt" ng-app="votaspApp">
+<head>
+	<title>Vota SP</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="styles/votasp.css" rel="stylesheet">
+</head>
+<body>
+	<nav class="navbar navbar-expand-md navbar-dark fixed-top" role="navigation">
+		<a class="navbar-brand" href="#">
+			<img src="img/logo.png" height="50" width="100" />
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarCollapse">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+					<a class="nav-link" href="#">Home</a>
+				</li>
+				<li class="nav-item">
+					<a  class="nav-link" href="projeto.html">O Projeto</a>
+				</li>
+				<li class="nav-item">
+					<a  class="nav-link" href="#">Como Funciona</a>
+				</li>
+				<li class="nav-item">
+					<a  class="nav-link" href="contato.html">Contato</a>
+				</li>
+			</ul>
+			<a type="button" class="btn btn-primary" href="#">Entrar</a>
+			<span>.</span>
+			<a type="button" class="btn btn-primary" href="#">Cadastre-se</a>
+
+		</div>
+	</nav>
+	<div class="container">
+		<p style="padding:30px 0px 0px 0px">usuários </p>
+		<div class="row row-content" ng-controller="usuariosController as usuCtrl">
+			<div class="col-xs-12">
+				<ul class="nav nav-tabs" role="tablist">
+					<li class="nav-item" ng-class="{active: usuCtrl.isSelected(1)}" role="presentation">
+						<a ng-click="usuCtrl.select(1)" class="nav-link" aria-controls="todos usuarios" role="tab">Todos usuários</a>
+					</li>
+					<li class="nav-item" ng-class="{active: usuCtrl.isSelected(2)}" role="presentation">
+						<a ng-click="usuCtrl.select(2)" class="nav-link" aria-controls="usuarios" role="tab">Somente usuários sem candidatos</a>
+					</li>
+					<li class="nav-item" ng-class="{active: usuCtrl.isSelected(3)}" role="presentation">
+						<a ng-click="usuCtrl.select(3)" class="nav-link" aria-controls="candidatos a deputado estadual" role="tab">Candidatos a deputado estadual</a>
+					</li>
+					<li class="nav-item" ng-class="{active: usuCtrl.isSelected(4)}" role="presentation">
+						<a ng-click="usuCtrl.select(4)" class="nav-link" aria-controls="candidatos a deputado federal" role="tab">Candidatos a deputado federal</a>
+					</li>	
+				</ul>
+				<div ng-show="usuCtrl.isSelected(4)">
+					Estou aqui. 
+				</div>
+				<div class="tab-content">
+					<!--ul class="media-list fade fade in active">-->
+					<ul class="media-list">
+						<li class="media" ng-repeat="usuario in usuCtrl.usuarios">
+							<!--<div  ng-show="usuCtrl.tab==usuario.candidato">-->
+								<div class="media-left media-middle">
+									<a href="#">
+										<img class="media-object img-thumbnail" width="100px"
+										ng-src={{usuario.image}} alt="Foto do usuário">
+									</a>
+								</div>
+								<div class="media-body">
+									<h2 class="media-heading">{{usuario.nome}}
+										<span class="badge">{{usuario.email}}</span></h2>
+										<p>{{usuario.description}}</p>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+	</div>
+	<footer class="row-footer bordas">
+		<div class="container flex-footer"">
+			<div class="row">
+				<div class="col-xs-12 col-sm-3">
+					<a href="http://minhacampinas.org.br" class="brand-logo footer-item" target="_blank">
+						<img src="img/logomc.png" alt="Logotipo Minha Campinas">
+					</a>
+				</div>
+				<div class="col-xs-12 col-sm-3">
+					<a href="http://eufaco.minhacampinas.org.br" class="waves-effect btn btn-doe footer-item">
+						<strong>Doe agora!</strong>
+					</a>
+				</div>
+				<div class="col-xs-12 col-sm-3">
+					<span class="disclaimer footer-item">
+						<center><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+							<img alt="Licença Creative Commons" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+						</a><small>
+							<br />Este trabalho está licenciado com uma Licença 
+							<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons - Atribuição-NãoComercial-CompartilhaIgual 4.0 Internacional</a></small><center>
+							</span>
+						</div>
+						<div class="col-xs-12 col-sm-3">
+							<p>Redes sociais</p>
+						</div>
+					</div>
+				</div>
+
+	</footer>
+	<!-- os comentários abaixo são utilizados pelo compilador do grunt para juntar os arquivos -->
+	<script src="scripts/main.79bd3496b86e557370f8.js"></script>
+</body>
+</html>
