@@ -1,15 +1,14 @@
 'use strict';
 
 angular.module('votaspApp',[])
-
-.controller('usuariosController', function(){
-	this.tab = 1;
+.controller('UsuariosController', ['$scope', function($scope){
+	$scope.tab = 1;
 	
-	var usuarios=[
+	$scope.usuarios=[
 			{
 				nome:'Marcia Cristina Bizinotto',
 				email:'marcia@gmail.com',
-				image: 'img/marcia.png',
+				image: 'images/marcia.png',
 				description:'Professora da Universidade Federal de Uberlândia.',
 				senha: '***',
 				candidato: 1
@@ -17,7 +16,7 @@ angular.module('votaspApp',[])
 			{
 				nome:'Alessandra',
 				email:'ale@gmail.com',
-				image: 'img/alessandra.jpg',
+				image: 'images/alessandra.jpg',
 				description:'Professora municipal de Vinhedo.',
 				senha: '***',
 				candidato: 1
@@ -25,7 +24,7 @@ angular.module('votaspApp',[])
 			{
 				nome:'Paula Lemos Real',
 				email:'plr@gmail.com',
-				image: 'img/paula.jpg',
+				image: 'images/paula.jpg',
 				description:'Professora da Universidade Federal de Uberlândia.',
 				senha: '***',
 				candidato: 2
@@ -33,7 +32,7 @@ angular.module('votaspApp',[])
 			{
 				nome:'Ernesta',
 				email:'Ernesta@gmail.com',
-				image: 'img/ernesta.jpg',
+				image: 'images/ernesta.jpg',
 				description:'Professora da Universidade Federal de Uberlândia.',
 				senha: '***',
 				candidato: 3
@@ -41,25 +40,23 @@ angular.module('votaspApp',[])
 			{
 				nome:'Violentina',
 				email:'violentina@gmail.com',
-				image: 'img/marcia.png',
+				image: 'images/marcia.png',
 				description:'Professora da Universidade Federal de Uberlândia.',
 				senha: '***',
 				candidato: 4
 			},
 		];
 
-		this.usuarios = usuarios;
-
-		this.select = function(setTab){
-			this.tab = setTab;
-			console.log("Tab active:", this.tab);
+		$scope.select = function(setTab){
+			$scope.tab = setTab;
+			console.log("Tab active:", $scope.tab);
 		};
 
-		this.isSelected = function(checkTab){
+		$scope.isSelected = function(checkTab){
 
-			var sta = (this.tab === checkTab);
+			var sta = ($scope.tab === checkTab);
 			console.log(sta);
 
-			return (this.tab === checkTab);
+			return ($scope.tab === checkTab);
 		};
-});
+}]);

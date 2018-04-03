@@ -5,9 +5,11 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
+	<!-- build:css css/main.css -->
 	<link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="styles/votasp.css" rel="stylesheet">
+	<!-- endbuild -->
+
 </head>
 <body>
 	<nav class="navbar navbar-expand-md navbar-dark fixed-top" role="navigation">
@@ -40,19 +42,19 @@
 	</nav>
 	<div class="container">
 		<p style="padding:30px 0px 0px 0px">usuários </p>
-		<div class="row row-content" ng-controller="usuariosController as usuCtrl">
+		<div class="row row-content" ng-controller="UsuariosController">
 			<div class="col-xs-12">
 				<ul class="nav nav-tabs" role="tablist">
-					<li class="nav-item" ng-class="{active: usuCtrl.isSelected(1)}" role="presentation">
+					<li class="nav-item" ng-class="{active: isSelected(1)}" role="presentation">
 						<a ng-click="usuCtrl.select(1)" class="nav-link" aria-controls="todos usuarios" role="tab">Todos usuários</a>
 					</li>
-					<li class="nav-item" ng-class="{active: usuCtrl.isSelected(2)}" role="presentation">
+					<li class="nav-item" ng-class="{active: isSelected(2)}" role="presentation">
 						<a ng-click="usuCtrl.select(2)" class="nav-link" aria-controls="usuarios" role="tab">Somente usuários sem candidatos</a>
 					</li>
-					<li class="nav-item" ng-class="{active: usuCtrl.isSelected(3)}" role="presentation">
+					<li class="nav-item" ng-class="{active: isSelected(3)}" role="presentation">
 						<a ng-click="usuCtrl.select(3)" class="nav-link" aria-controls="candidatos a deputado estadual" role="tab">Candidatos a deputado estadual</a>
 					</li>
-					<li class="nav-item" ng-class="{active: usuCtrl.isSelected(4)}" role="presentation">
+					<li class="nav-item" ng-class="{active: isSelected(4)}" role="presentation">
 						<a ng-click="usuCtrl.select(4)" class="nav-link" aria-controls="candidatos a deputado federal" role="tab">Candidatos a deputado federal</a>
 					</li>	
 				</ul>
@@ -62,7 +64,7 @@
 				<div class="tab-content">
 					<!--ul class="media-list fade fade in active">-->
 					<ul class="media-list">
-						<li class="media" ng-repeat="usuario in usuCtrl.usuarios">
+						<li class="media" ng-repeat="usuario in usuarios">
 							<!--<div  ng-show="usuCtrl.tab==usuario.candidato">-->
 								<div class="media-left media-middle">
 									<a href="#">

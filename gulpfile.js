@@ -14,6 +14,8 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync'),
     del = require('del');
 
+    var ngannotate = require('gulp-ng-annotate');
+
 //Verifica os erros de Javascript
 gulp.task('jshint', function() {
   return gulp.src('app/scripts/**/*.js')
@@ -33,10 +35,10 @@ gulp.task('default', ['clean'], function() {
 
 //Verifica os arquivos utilizados de css e js e compila conjuntamente. 
 gulp.task('usemin',['jshint'], function () {
-  return gulp.src('./app/index.html')
+  return gulp.src('./app/usuarios.html')
       .pipe(usemin({
         css:[minifycss(),rev()],
-        js: [uglify(),rev()]
+        js: [ngannotate(), uglify(),rev()]
       }))
       .pipe(gulp.dest('dist/'));
 });
@@ -45,8 +47,8 @@ gulp.task('usemin',['jshint'], function () {
 gulp.task('imagemin', function() {
   return del(['dist/images']), gulp.src('app/images/**/*')
     .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
-    .pipe(gulp.dest('dist/images'))
-    .pipe(notify({ message: 'Images task complete' }));
+    .pipe(gulp.dest('dist/images'));
+   // .pipe(notify({ message: 'Images task complete' }));
 });
 
 gulp.task('copyfonts', ['clean'], function() {
@@ -77,7 +79,7 @@ gulp.task('browser-sync', ['default'], function () {
    browserSync.init(files, {
       server: {
          baseDir: "dist",
-         index: "index.html"
+         index: "usuarios.html"
       }
    });
         // Watch any files in dist/, reload on change
