@@ -40,11 +40,36 @@ angular.module('votaspApp',[])
 			{
 				nome:'Violentina',
 				email:'violentina@gmail.com',
-				image: 'images/marcia.png',
+				image: 'images/ernesta.jpg',
 				description:'Professora da Universidade Federal de Uberlândia.',
 				senha: '***',
 				candidato: 4
 			},
+			{
+				nome:'Denise',
+				email:'denise.com',
+				image: 'images/denise.jpg',
+				description:'Professora Municipal de Campinas.',
+				senha: '***',
+				candidato: 3
+			},
+			{
+				nome:'Luciana',
+				email:'luciana@gmail.com',
+				image: 'images/luciana.jpg',
+				description:'System Engineer.',
+				senha: '***',
+				candidato: 3
+			},
+			{
+				nome:'Luciana',
+				email:'luciana@gmail.com',
+				image: 'images/luciana.jpg',
+				description:'System Engineer.',
+				senha: '***',
+				candidato: 3
+			}
+
 		];
 
 		$scope.select = function(setTab){
