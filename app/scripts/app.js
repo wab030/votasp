@@ -9,7 +9,7 @@ angular.module('votaspApp',[])
 				nome:'Marcia Cristina Bizinotto',
 				email:'marcia@gmail.com',
 				image: 'images/marcia.png',
-				description:'Professora da Universidade Federal de Uberlândia.',
+				profissao:'Professora da Universidade Federal de Uberlândia.',
 				senha: '***',
 				candidato: 1
 			},
@@ -17,7 +17,7 @@ angular.module('votaspApp',[])
 				nome:'Alessandra',
 				email:'ale@gmail.com',
 				image: 'images/alessandra.jpg',
-				description:'Professora municipal de Vinhedo.',
+				profissao:'Professora municipal de Vinhedo.',
 				senha: '***',
 				candidato: 1
 			},
@@ -25,7 +25,7 @@ angular.module('votaspApp',[])
 				nome:'Paula Lemos Real',
 				email:'plr@gmail.com',
 				image: 'images/paula.jpg',
-				description:'Professora da Universidade Federal de Uberlândia.',
+				profissao:'Professora da Universidade Federal de Uberlândia.',
 				senha: '***',
 				candidato: 2
 			},
@@ -33,7 +33,7 @@ angular.module('votaspApp',[])
 				nome:'Ernesta',
 				email:'Ernesta@gmail.com',
 				image: 'images/ernesta.jpg',
-				description:'Professora da Universidade Federal de Uberlândia.',
+				profissao:'Professora da Universidade Federal de Uberlândia.',
 				senha: '***',
 				candidato: 3
 			},
@@ -41,7 +41,7 @@ angular.module('votaspApp',[])
 				nome:'Violentina',
 				email:'violentina@gmail.com',
 				image: 'images/ernesta.jpg',
-				description:'Professora da Universidade Federal de Uberlândia.',
+				profissao:'Professora da Universidade Federal de Uberlândia.',
 				senha: '***',
 				candidato: 4
 			},
@@ -49,7 +49,7 @@ angular.module('votaspApp',[])
 				nome:'Denise',
 				email:'denise.com',
 				image: 'images/denise.jpg',
-				description:'Professora Municipal de Campinas.',
+				profissao:'Professora Municipal de Campinas.',
 				senha: '***',
 				candidato: 3
 			},
@@ -57,7 +57,7 @@ angular.module('votaspApp',[])
 				nome:'Luciana',
 				email:'luciana@gmail.com',
 				image: 'images/luciana.jpg',
-				description:'System Engineer.',
+				profissao:'System Engineer.',
 				senha: '***',
 				candidato: 3
 			},
@@ -65,7 +65,7 @@ angular.module('votaspApp',[])
 				nome:'Luciana',
 				email:'luciana@gmail.com',
 				image: 'images/luciana.jpg',
-				description:'System Engineer.',
+				profissao:'System Engineer.',
 				senha: '***',
 				candidato: 3
 			}
@@ -84,4 +84,30 @@ angular.module('votaspApp',[])
 
 			return ($scope.tab === checkTab);
 		};
-}]);
+}])
+
+.controller('CadastroController', ['$scope', function($scope){
+	$scope.cadastro = {
+		nome: '',
+		email: '',
+		profissao: '',
+		senha: '',
+		candidato: ''
+	};
+	console.log($scope.cadastro);
+
+	$scope.enviarCadastro = function(){
+
+	};
+
+
+}])
+
+.controller('FormController', ['$scope', function($scope){
+
+
+}])
+
+
+
+;

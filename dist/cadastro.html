@@ -5,8 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="css/main-b6b78549d1.css"/>
-
+	<link rel="stylesheet" href="css/main-d94e41cc33.css"/>
 </head>
 <body>
 	<nav class="navbar navbar-expand-md navbar-dark fixed-top" role="navigation">
@@ -37,48 +36,47 @@
 
 		</div>
 	</nav>
-	<div class="container corpo">
-		<p style="padding:30px 0px 0px 0px">usuários </p>
-		<div class="row row-content" ng-controller="UsuariosController">
-			<div class="col-xs-12">
-				<ul class="nav nav-tabs" role="tablist">
-					<li class="nav-item" ng-class="{active: isSelected(1)}" role="presentation">
-						<a ng-click="usuCtrl.select(1)" class="nav-link" aria-controls="todos usuarios" role="tab">Todos usuários</a>
-					</li>
-					<li class="nav-item" ng-class="{active: isSelected(2)}" role="presentation">
-						<a ng-click="usuCtrl.select(2)" class="nav-link" aria-controls="usuarios" role="tab">Somente usuários sem candidatos</a>
-					</li>
-					<li class="nav-item" ng-class="{active: isSelected(3)}" role="presentation">
-						<a ng-click="usuCtrl.select(3)" class="nav-link" aria-controls="candidatos a deputado estadual" role="tab">Candidatos a deputado estadual</a>
-					</li>
-					<li class="nav-item" ng-class="{active: isSelected(4)}" role="presentation">
-						<a ng-click="usuCtrl.select(4)" class="nav-link" aria-controls="candidatos a deputado federal" role="tab">Candidatos a deputado federal</a>
-					</li>	
-				</ul>
-				<div ng-show="usuCtrl.isSelected(4)">
-					Estou aqui. 
-				</div>
-				<div class="tab-content">
-					<!--ul class="media-list fade fade in active">-->
-					<ul class="media-list">
-						<li class="media" ng-repeat="usuario in usuarios">
-							<!--<div  ng-show="usuCtrl.tab==usuario.candidato">-->
-								<div class="media-left media-middle">
-									<a href="#">
-										<img class="media-object img-thumbnail" width="100px"
-										ng-src={{usuario.image}} alt="Foto do usuário">
-									</a>
-								</div>
-								<div class="media-body">
-									<h2 class="media-heading">{{usuario.nome}}
-										<span class="badge">{{usuario.email}}</span></h2>
-										<p>{{usuario.description}}</p>
-									</div>
-								</li>
-							</ul>
+	<div class="container" ng-controller="CadastroController" style="padding: 30px 0px 0px 0px">
+		<div class="row">
+			<div ng-controller="FormController">
+				<form class="needs-validation" role="form" name="formularioCadastro" ng-submit="enviarCadastro()" novalidate>
+					<div class="form-group">
+						<label for="nome">Nome</label>
+						<input type="text" class="form-control form-control-sm" id="nome" name="nome"placeholder="Digite seu nome" ng-model="cadastro.nome" required>
+						<span ng-show="formularioCadastro.nome.$error.required && !formularioCadastro.nome.$pristine" class="form-text text-muted">Nome é obrigatório.</span>
+
+					</div>
+					<div class="form-group">
+						<label for="email">E-mail</label>
+						<input type="email" class="form-control form-control-sm" id="email" name="email" placeholder="Digite seu e-mail" ng-model="cadastro.email" required>
+						<small id="emailHelp" class="form-text text-muted">Nós nunca compartilhamos o seus e-mail com outras organizações ou pessoas.</small>
+						<span ng-show="formularioCadastro.email.$error.required && !formularioCadastro.email.$pristine" class="form-text text-muted">Email é obrigatório.</span>
+
+					</div>
+					<div class="form-group">
+						<label for="foto">Se você quiser poder carregar uma foto</label>
+						<input type="file" class="form-control-file form-control-sm" id="foto" ng-model="cadastro.foto">
+					</div>
+					<div class="form-group">
+						<label for="senha">Senha</label>
+						<div class="col-7">
+							<input type="password" class="form-control form-control-sm" id="senha" placeholder="Digite aqui sua senha" ng-model="cadastro.senha" required>
+						</div>
+						<small id="passwordHelpBlock" class="form-text text-muted">Sua senha deve ter entre 8 e 20 caracteres, conter letras e números. 
+						</small>
+						<label for="senha_confirma">Confirme a senha</label>
+						<div class="col-7">
+							<input type="password" class="form-control form-control-sm" id="senha_confirma" placeholder="Digite novamente sua senha" ng-model="senha_confirma" required>
 						</div>
 					</div>
+					<button type="submit" class="btn btn-primary">Enviar</button><br><br>
+				</form>
+				<div>
+					<p>{{cadastro.nome}}</p>
+					<p>{{cadastro.email}}</p>
 				</div>
+			</div>
+		</div>
 	</div>
 	<footer class="row-footer bordas">
 		<div class="container flex-footer"">
@@ -108,8 +106,9 @@
 					</div>
 				</div>
 
-	</footer>
-	<!-- os comentários abaixo são utilizados pelo compilador do grunt para juntar os arquivos -->
-	<script src="scripts/main-a808c7a51c.js"></script>
+			</footer>
+		<!-- os comentários abaixo são utilizados pelo compilador do grunt para juntar os arquivos -->
+	<script src="scripts/main-408335090e.js"></script>
+	
 </body>
 </html>

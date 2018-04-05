@@ -9,7 +9,6 @@
 	<link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="styles/votasp.css" rel="stylesheet">
 	<!-- endbuild -->
-
 </head>
 <body>
 	<nav class="navbar navbar-expand-md navbar-dark fixed-top" role="navigation">
@@ -40,7 +39,7 @@
 
 		</div>
 	</nav>
-	<div class="container corpo">
+	<div class="container">
 		<p style="padding:30px 0px 0px 0px">usuários </p>
 		<div class="row row-content" ng-controller="UsuariosController">
 			<div class="col-xs-12">
@@ -75,7 +74,7 @@
 								<div class="media-body">
 									<h2 class="media-heading">{{usuario.nome}}
 										<span class="badge">{{usuario.email}}</span></h2>
-										<p>{{usuario.description}}</p>
+										<p>{{usuario.profissao}}</p>
 									</div>
 								</li>
 							</ul>
@@ -110,7 +109,6 @@
 						</div>
 					</div>
 				</div>
-
 	</footer>
 	<!-- os comentários abaixo são utilizados pelo compilador do grunt para juntar os arquivos -->
 	<!-- build:js scripts/main.js -->

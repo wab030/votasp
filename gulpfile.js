@@ -35,7 +35,7 @@ gulp.task('default', ['clean'], function() {
 
 //Verifica os arquivos utilizados de css e js e compila conjuntamente. 
 gulp.task('usemin',['jshint'], function () {
-  return gulp.src('./app/usuarios.html')
+  return gulp.src('./app/cadastro.html')
       .pipe(usemin({
         css:[minifycss(),rev()],
         js: [ngannotate(), uglify(),rev()]
@@ -79,7 +79,7 @@ gulp.task('browser-sync', ['default'], function () {
    browserSync.init(files, {
       server: {
          baseDir: "dist",
-         index: "usuarios.html"
+         index: "cadastro.html"
       }
    });
         // Watch any files in dist/, reload on change
