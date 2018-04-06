@@ -38,44 +38,59 @@
 	</nav>
 	<div class="container" ng-controller="CadastroController" style="padding: 30px 0px 0px 0px">
 		<div class="row">
-			<div ng-controller="FormController">
-				<form class="needs-validation" role="form" name="formularioCadastro" ng-submit="enviarCadastro()" novalidate>
-					<div class="form-group">
-						<label for="nome">Nome</label>
-						<input type="text" class="form-control form-control-sm" id="nome" name="nome"placeholder="Digite seu nome" ng-model="cadastro.nome" required>
-						<span ng-show="formularioCadastro.nome.$error.required && !formularioCadastro.nome.$pristine" class="form-text text-muted">Nome é obrigatório.</span>
-
-					</div>
-					<div class="form-group">
-						<label for="email">E-mail</label>
-						<input type="email" class="form-control form-control-sm" id="email" name="email" placeholder="Digite seu e-mail" ng-model="cadastro.email" required>
-						<small id="emailHelp" class="form-text text-muted">Nós nunca compartilhamos o seus e-mail com outras organizações ou pessoas.</small>
-						<span ng-show="formularioCadastro.email.$error.required && !formularioCadastro.email.$pristine" class="form-text text-muted">Email é obrigatório.</span>
-
-					</div>
-					<div class="form-group">
-						<label for="foto">Se você quiser poder carregar uma foto</label>
-						<input type="file" class="form-control-file form-control-sm" id="foto" ng-model="cadastro.foto">
-					</div>
-					<div class="form-group">
-						<label for="senha">Senha</label>
-						<div class="col-7">
-							<input type="password" class="form-control form-control-sm" id="senha" placeholder="Digite aqui sua senha" ng-model="cadastro.senha" required>
-						</div>
-						<small id="passwordHelpBlock" class="form-text text-muted">Sua senha deve ter entre 8 e 20 caracteres, conter letras e números. 
-						</small>
-						<label for="senha_confirma">Confirme a senha</label>
-						<div class="col-7">
-							<input type="password" class="form-control form-control-sm" id="senha_confirma" placeholder="Digite novamente sua senha" ng-model="senha_confirma" required>
+			<form class="needs-validation form-horizontal" role="form" name="formularioCadastro" ng-submit="enviarCadastro()" novalidate>
+				<div class="form-row">
+					<div class="col-sm-12 col-md-12">
+						<div class="form-group" ng-class="{ 'has-error has-feedback' : formularioCadastro.nome.$error.required && !formularioCadastro.nome.$pristine }">
+							<label for="nome">Nome</label>
+							<input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu nome" ng-model="cadastro.nome" required>
+							<span ng-show="formularioCadastro.nome.$error.required && !formularioCadastro.nome.$pristine" class="help-block form-control-feedback">Nome é obrigatório.</span>
 						</div>
 					</div>
-					<button type="submit" class="btn btn-primary">Enviar</button><br><br>
-				</form>
-				<div>
-					<p>{{cadastro.nome}}</p>
-					<p>{{cadastro.email}}</p>
 				</div>
-			</div>
+				<div class="form-row">
+					<div class="col-sm-12 col-md-12">
+						<div class="form-group" ng-class="{ 'has-error has-feedback' : formularioCadastro.email.$error.required && !formularioCadastro.email.$pristine }">
+							<label for="email">E-mail</label>
+							<input type="email" class="form-control form-control-sm" id="email" name="email" placeholder="Digite seu e-mail" ng-model="cadastro.email" required>
+							<span ng-show="formularioCadastro.email.$invalid && !formularioCadastro.email.$pristine" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                     <span ng-show="(formularioCadastro.email.$invalid || formularioCadastro.email.$error.required) && !formularioCadastro.email.$pristine" class="help-block">Digite um e-mail válido.</span>
+							<small id="emailHelp" class="form-text text-muted">Nós nunca compartilhamos o seus e-mail com outras organizações ou pessoas.</small>
+						</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col-sm-12 col-md-12">
+						<div class="form-group">
+							<label for="foto">Se você quiser poder carregar uma foto</label>
+							<input type="file" class="form-control-file form-control-sm" id="foto" ng-model="cadastro.foto">
+						</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col-sm-12 col-md-12">
+						<div class="form-group">
+							<label for="senha">Senha</label>
+							<div class="col-7">
+								<input type="password" class="form-control form-control-sm" id="senha" placeholder="Digite aqui sua senha" ng-model="cadastro.senha" required>
+							</div>
+							<small id="passwordHelpBlock" class="form-text text-muted">Sua senha deve ter entre 8 e 20 caracteres, conter letras e números. 
+							</small>
+						</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col-sm-12 col-md-12">
+						<div class="form-group">
+							<label for="senha_confirma">Confirme a senha</label>
+							<div class="col-7">
+								<input type="password" class="form-control form-control-sm" id="senha_confirma" placeholder="Digite novamente sua senha" ng-model="senha_confirma" required>
+							</div>
+						</div>
+					</div>
+				</div>
+				<button type="submit" class="btn btn-primary" ng-disabled="formularioCadastro.$invalid">Enviar</button><br><br>
+			</form>
 		</div>
 	</div>
 	<footer class="row-footer bordas">
@@ -108,7 +123,7 @@
 
 			</footer>
 		<!-- os comentários abaixo são utilizados pelo compilador do grunt para juntar os arquivos -->
-	<script src="scripts/main-408335090e.js"></script>
+	<script src="scripts/main-dec91d7354.js"></script>
 	
 </body>
 </html>

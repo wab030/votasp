@@ -94,16 +94,20 @@ angular.module('votaspApp',[])
 		senha: '',
 		candidato: ''
 	};
-	console.log($scope.cadastro);
 
 	$scope.enviarCadastro = function(){
+		// Validar campos
+		$scope.cadastro = {
+			nome: '',
+			email: '',
+			profissao: '',
+			senha: '',
+			candidato: ''
+		};
+		$scope.formularioCadastro.$setPristine(); //Seta o formulário para sua versão inicial sem dados
+
 
 	};
-
-
-}])
-
-.controller('FormController', ['$scope', function($scope){
 
 
 }])
