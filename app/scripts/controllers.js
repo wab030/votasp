@@ -21,8 +21,17 @@ angular.module('votaspApp')
 		return ($scope.tab === checkTab);
 	};
 }])
+.controller('UsuarioController',['$scope','$routeParams','usuariosFactory',function($scope, $routeParams, usuariosFactory){
+	console.log("passei pelo ....UsuarioController");
 
+
+	//A variável $routeParams contem a string que foi passada na URL. 
+	_id = parseInt($routeParams.id, 10);
+	$scope.usuario = usuariosFactory.getUsuario(_id);
+
+}])
 .controller('CadastroController', ['$scope', function($scope){
+	console.log("Passei pelo CadastroController");
 	$scope.cadastro = {
 		nome: '',
 		email: '',
@@ -44,6 +53,10 @@ angular.module('votaspApp')
 
 
 	};
+}])
+
+.controller('HomeController', ['$scope', function($scope){
+	console.log("Passei pelo HomeController");
 }])
 
 ;

@@ -7,6 +7,7 @@ angular.module('votaspApp')
 
 	var usuarios=[
 			{
+				_id: 0,
 				nome:'Marcia Cristina Bizinotto',
 				email:'marcia@gmail.com',
 				image: 'images/marcia.png',
@@ -15,6 +16,7 @@ angular.module('votaspApp')
 				candidato: 1
 			},
 			{
+				_id: 1,
 				nome:'Alessandra',
 				email:'ale@gmail.com',
 				image: 'images/alessandra.jpg',
@@ -23,6 +25,7 @@ angular.module('votaspApp')
 				candidato: 1
 			},
 			{
+				_id: 2,
 				nome:'Paula Lemos Real',
 				email:'plr@gmail.com',
 				image: 'images/paula.jpg',
@@ -31,6 +34,7 @@ angular.module('votaspApp')
 				candidato: 2
 			},
 			{
+				_id: 3,
 				nome:'Ernesta',
 				email:'Ernesta@gmail.com',
 				image: 'images/ernesta.jpg',
@@ -39,6 +43,7 @@ angular.module('votaspApp')
 				candidato: 3
 			},
 			{
+				_id: 4,
 				nome:'Violentina',
 				email:'violentina@gmail.com',
 				image: 'images/ernesta.jpg',
@@ -47,6 +52,7 @@ angular.module('votaspApp')
 				candidato: 4
 			},
 			{
+				_id: 5,
 				nome:'Denise',
 				email:'denise.com',
 				image: 'images/denise.jpg',
@@ -55,6 +61,7 @@ angular.module('votaspApp')
 				candidato: 3
 			},
 			{
+				_id: 6,
 				nome:'Luciana',
 				email:'luciana@gmail.com',
 				image: 'images/luciana.jpg',
@@ -63,6 +70,7 @@ angular.module('votaspApp')
 				candidato: 3
 			},
 			{
+				_id: 7,
 				nome:'Luciana',
 				email:'luciana@gmail.com',
 				image: 'images/luciana.jpg',
