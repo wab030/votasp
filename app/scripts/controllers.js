@@ -21,12 +21,12 @@ angular.module('votaspApp')
 		return ($scope.tab === checkTab);
 	};
 }])
-.controller('UsuarioController',['$scope','$routeParams','usuariosFactory',function($scope, $routeParams, usuariosFactory){
+.controller('UsuarioController',['$scope','$stateParams','usuariosFactory',function($scope, $stateParams, usuariosFactory){
 	console.log("passei pelo ....UsuarioController");
 
 
 	//A variável $routeParams contem a string que foi passada na URL. 
-	_id = parseInt($routeParams.id, 10);
+	var _id = parseInt($stateParams.id, 10);
 	$scope.usuario = usuariosFactory.getUsuario(_id);
 
 }])
@@ -57,6 +57,7 @@ angular.module('votaspApp')
 
 .controller('HomeController', ['$scope', function($scope){
 	console.log("Passei pelo HomeController");
+	$scope.a = 0;
 }])
 
 ;

@@ -1,40 +1,67 @@
 'use strict';
 
+angular.module('votaspApp',['ui.router'])
+.config(function($stateProvider, $urlRouterProvider){
+	$stateProvider
+		.state('app', {
+			url:'/',
+			views:{
+				'header':{
+					templateUrl:'views/header.html'
+				},
+				'content':{
+					templateUrl:'views/home.html'
+				},
+				'footer':{
+					templateUrl:'views/footer.html'
+				}
+			}
+		})
+		.state('app.projeto', {
+			url:'projeto',
+			views:{
+				'content@':{
+					templateUrl:'views/projeto.html'
+				}
+			}
+		})
+		.state('app.contato', {
+			url:'contato',
+			views:{
+				'content@':{
+					templateUrl:'views/contato.html'
+				}
+			}
+		})
+		.state('app.cadastro', {
+			url:'cadastro',
+			views:{
+				'content@':{
+					templateUrl:'views/cadastro.html'
+				}
+			}
+		})
+		.state('app.usuarios', {
+			url:'usuarios',
+			views:{
+				'content@':{
+					templateUrl:'views/usuarios.html'
+				}
+			}
+		})
+  		.state('app.usuario', {
+      	url: 'usuarios/:id',
+         views: {
+         	'content@': {
+         		templateUrl : 'views/usuario.html',
+         		controller  : 'UsuariosController'
+         	}
+         }
+      });
 
-angular.module('votaspApp',['ngRoute'])
 
-.config(function($routeProvider) {
+		;
 
-	$routeProvider
-	.when('/home', {
-		templateUrl : 'home.html',
-		controller : 'HomeController'
-	})
-	.when('/contato', {
-		templateUrl : 'contato.html', 
-		controller : 'contatoController'
-	})
-	.when('/usuarios',{
-		templateUrl : 'usuarios.html',
-		controller : 'UsuariosController'
-	})
-	.when('/usuarios/:id',{
-		templateUrl : 'usuario.html',
-		controller : 'UsuarioController'
-	})
-	.when('/projeto',{
-		templateUrl : 'projeto.html',
-		controller : 'ProjetoController'
-	})
-	.when('/cadastro',{
-		templateUrl : 'cadastro.html',
-		controller : 'CadastroController'
-	})
-	.when('/entrar', {
-		templateUrl : 'entrar.html',
-		controller : 'EntrarController'
-	})
-	.otherwise('/home');
+		$urlRouterProvider.otherwise('/');
 })
-
 ;

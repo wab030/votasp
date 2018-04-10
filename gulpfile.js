@@ -12,9 +12,8 @@ var gulp = require('gulp'),
     changed = require('gulp-changed'),
     rev = require('gulp-rev'),
     browserSync = require('browser-sync'),
+    ngannotate = require('gulp-ng-annotate'),
     del = require('del');
-
-    var ngannotate = require('gulp-ng-annotate');
 
 //Verifica os erros de Javascript
 gulp.task('jshint', function() {
@@ -35,7 +34,7 @@ gulp.task('default', ['clean'], function() {
 
 //Verifica os arquivos utilizados de css e js e compila conjuntamente. 
 gulp.task('usemin',['jshint'], function () {
-  return gulp.src('./app/*.html')
+  return gulp.src('./app/**/*.html')
       .pipe(usemin({
         css:[minifycss(),rev()],
         js: [ngannotate(), uglify(),rev()]
