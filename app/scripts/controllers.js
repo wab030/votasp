@@ -3,11 +3,22 @@
 angular.module('votaspApp')
 .controller('UsuariosController',['$scope','usuariosFactory',function($scope, usuariosFactory){
 	$scope.tab = 1;
+	$scope.usuarios = {};
+	$scope.showUsers = false;
+	$scope.message = "Carregando...";
 
-	$scope.usuarios = usuariosFactory.getUsuarios();
+	usuariosFactory.getUsuarios()
+	.then(
+		function(response){ //sucess function
+			$scope.showUsers = true;
+			$scope.usuarios = response.data;
+		},
+		function(response){ //failure function
+			console.log(response.data);
+			$scope.message = "Error: "+response.status + " " + response.statusText;
+		}
+	);
 	
-	console.log($scope.usuarios);
-
 	$scope.select = function(setTab){
 		$scope.tab = setTab;
 		console.log("Tab active:", $scope.tab);
@@ -24,10 +35,21 @@ angular.module('votaspApp')
 .controller('UsuarioController',['$scope','$stateParams','usuariosFactory',function($scope, $stateParams, usuariosFactory){
 	console.log("passei pelo ....UsuarioController");
 
-
+	$scope.usuario = {};
+	$scope.showUser = false;
+	$scope.message = "Carregando...";
 	//A variável $routeParams contem a string que foi passada na URL. 
-	var _id = parseInt($stateParams.id, 10);
-	$scope.usuario = usuariosFactory.getUsuario(_id);
+	var id = parseInt($stateParams.id, 10);
+	usuariosFactory.getUsuario(id)
+	.then(
+		function(response){
+			$scope.showUser = true;
+			$scope.usuario = response.data;
+		},
+		function(response){
+			$scope.message = "Error: "+response.status + " " + response.statusText;
+		}
+	);
 
 }])
 .controller('CadastroController', ['$scope', function($scope){

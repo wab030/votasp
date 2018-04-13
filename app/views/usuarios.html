@@ -1,7 +1,10 @@
 	<div class="container">
 		<p style="padding:30px 0px 0px 0px">usuários </p>
 		<div class="row row-content" ng-controller="UsuariosController">
-			<div class="col-xs-12">
+			<div class="col-xs-12" ng-if="!showUsers">
+				<h3>{{message}}</h3>
+			</div>
+			<div class="col-xs-12" ng-if="showUsers">
 				<ul class="nav nav-tabs" role="tablist">
 					<li class="nav-item" ng-class="{active: isSelected(1)}" role="presentation">
 						<a ng-click="usuCtrl.select(1)" class="nav-link" aria-controls="todos usuarios" role="tab">Todos usuários</a>
@@ -25,7 +28,7 @@
 						<li class="media" ng-repeat="usuario in usuarios">
 							<!--<div  ng-show="usuCtrl.tab==usuario.candidato">-->
 								<div class="media-left media-middle">
-									<a ui-sref="app.usuario({id: usuario._id})">
+									<a ui-sref="app.usuario({id: usuario.id})">
 										<img class="media-object img-thumbnail" width="100px"
 										ng-src={{usuario.image}} alt="Foto do usuário">
 									</a>

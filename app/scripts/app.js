@@ -54,13 +54,10 @@ angular.module('votaspApp',['ui.router'])
          views: {
          	'content@': {
          		templateUrl : 'views/usuario.html',
-         		controller  : 'UsuariosController'
+         		controller  : 'UsuarioController'
          	}
          }
       });
-
-
-		;
 
 		$urlRouterProvider.otherwise('/');
 })
