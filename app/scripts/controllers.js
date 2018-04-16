@@ -4,30 +4,16 @@ angular.module('votaspApp')
 .controller('UsuariosController',['$scope','usuariosFactory',function($scope, usuariosFactory){
 	$scope.tab = 1;
 	$scope.usuarios = {};
-	$scope.showUsers = false;
+	$scope.showUsers = true;
 	$scope.message = "Carregando...";
 
-	usuariosFactory.getUsuarios()
-	.then(
-		function(response){ //sucess function
-			$scope.showUsers = true;
-			$scope.usuarios = response.data;
-		},
-		function(response){ //failure function
-			console.log(response.data);
-			$scope.message = "Error: "+response.status + " " + response.statusText;
-		}
-	);
+	$scope.usuarios = usuariosFactory.getUsuarios().query();
 	
 	$scope.select = function(setTab){
 		$scope.tab = setTab;
-		console.log("Tab active:", $scope.tab);
 	};
 
 	$scope.isSelected = function(checkTab){
-
-		var sta = ($scope.tab === checkTab);
-		console.log(sta);
 
 		return ($scope.tab === checkTab);
 	};
@@ -35,11 +21,15 @@ angular.module('votaspApp')
 .controller('UsuarioController',['$scope','$stateParams','usuariosFactory',function($scope, $stateParams, usuariosFactory){
 	console.log("passei pelo ....UsuarioController");
 
-	$scope.usuario = {};
-	$scope.showUser = false;
+	//$scope.usuario = {};
+	$scope.showUser = true;
 	$scope.message = "Carregando...";
 	//A variável $routeParams contem a string que foi passada na URL. 
 	var id = parseInt($stateParams.id, 10);
+
+	$scope.usuario = usuariosFactory.getUsuarios().get({id:id});
+
+	/* com a utilização do resurce do Angular não preciso do método abaixo.
 	usuariosFactory.getUsuario(id)
 	.then(
 		function(response){
@@ -49,10 +39,10 @@ angular.module('votaspApp')
 		function(response){
 			$scope.message = "Error: "+response.status + " " + response.statusText;
 		}
-	);
+	);*/
 
 }])
-.controller('CadastroController', ['$scope', function($scope){
+.controller('CadastroController', ['$scope', 'usuariosFactory', function($scope, usuariosFactory){
 	console.log("Passei pelo CadastroController");
 	$scope.cadastro = {
 		nome: '',
@@ -64,6 +54,13 @@ angular.module('votaspApp')
 
 	$scope.enviarCadastro = function(){
 		// Validar campos
+
+		console.log($scope.cadastro);
+		usuariosFactory.getUsuarios().save({nome:'Saimon'});
+		var id = 1;
+
+		//$scope.usuario = usuariosFactory.getUsuarios().get({id:id});
+		
 		$scope.cadastro = {
 			nome: '',
 			email: '',

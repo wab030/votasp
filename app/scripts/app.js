@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('votaspApp',['ui.router'])
+angular.module('votaspApp',['ui.router', 'ngResource'])
 .config(function($stateProvider, $urlRouterProvider){
 	$stateProvider
 		.state('app', {

@@ -23,6 +23,7 @@
     "font-awesome": "^5.0.9",
     "angular": "^1.6.9",
     "angular-route": "^1.6.9",
-    "angular-ui-router": "^1.0.15"
+    "angular-ui-router": "^1.0.15",
+    "angular-resource": "^1.6.9"
   }
 }
