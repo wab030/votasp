@@ -8,6 +8,7 @@ angular.module('votaspApp')
 	$scope.message = "Carregando...";
 
 	$scope.usuarios = usuariosFactory.getUsuarios().query();
+	console.log($scope.usuarios);
 	
 	$scope.select = function(setTab){
 		$scope.tab = setTab;
@@ -48,16 +49,17 @@ angular.module('votaspApp')
 		nome: '',
 		email: '',
 		profissao: '',
+		foto: '',
 		senha: '',
-		candidato: ''
+		candidato: '',
 	};
 
 	$scope.enviarCadastro = function(){
 		// Validar campos
 
 		console.log($scope.cadastro);
-		usuariosFactory.getUsuarios().save({nome:'Saimon'});
-		var id = 1;
+
+		usuariosFactory.getUsuarios().save($scope.cadastro);
 
 		//$scope.usuario = usuariosFactory.getUsuarios().get({id:id});
 		

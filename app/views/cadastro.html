@@ -25,7 +25,17 @@
 					<div class="col-sm-12 col-md-12">
 						<div class="form-group">
 							<label for="foto">Se você quiser poder carregar uma foto</label>
-							<input type="file" class="form-control-file form-control-sm" id="foto" ng-model="cadastro.foto">
+							<input type="file" id="foto" ng-model="cadastro.foto">
+						</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col-sm-12 col-md-12">
+						<div class="form-group">
+							<label for="candidato">Selecione uma opção</label><br>
+							<label class="radio-inline"><input type="radio" name="candidato" ng-model="cadastro.candidato" value="1">Eleitor</label>
+							<label class="radio-inline"><input type="radio" ng-model="cadastro.candidato" name="candidato"  value="2">Candidato Deputado Estadual</label>
+							<label class="radio-inline"><input type="radio" ng-model="cadastro.candidato" name="candidato"  value="3">Candidato Deputado Federal</label>
 						</div>
 					</div>
 				</div>
