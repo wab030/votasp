@@ -50,7 +50,7 @@ angular.module('votaspApp',['ui.router', 'ngResource'])
 			}
 		})
   		.state('app.usuario', {
-      	url: 'usuarios/:id',
+      	url: 'usuario/:id',
          views: {
          	'content@': {
          		templateUrl : 'views/usuario.html',

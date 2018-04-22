@@ -28,7 +28,7 @@
 						<li class="media" ng-repeat="usuario in usuarios">
 							<!--<div  ng-show="usuCtrl.tab==usuario.candidato">-->
 								<div class="media-left media-middle">
-									<a ui-sref="app.usuario({id: usuario.id})">
+									<a ui-sref="app.usuario({id: usuario._id})">
 										<img class="media-object img-thumbnail" width="100px"
 										ng-src={{usuario.image}} alt="Foto do usuário">
 									</a>
@@ -37,6 +37,7 @@
 									<h2 class="media-heading">{{usuario.nome}}
 										<span class="badge">{{usuario.email}}</span></h2>
 										<p>{{usuario.profissao}}</p>
+										<p>{{usuario._id}}</p>
 									</div>
 								</li>
 							</ul>

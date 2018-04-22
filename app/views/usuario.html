@@ -1,13 +1,12 @@
-<div class="container">
+<div class="container" ng-controller="UsuarioController">
+	<br><br><br><br><br>
 	<div class="col-xs-12" ng-if="!showUser">
 		<h3>{{message}}</h3>
 	</div>
 	<div class="col-xs-12" ng-if="showUser">
-		<div class="media-left media-middle" ng-controller="UsuarioController">
-			<a href="#/usuarios/{{usuario._id}}">
-				<img class="media-object img-thumbnail" width="100px"
+		<div class="media-left media-middle">
+			<img class="media-object img-thumbnail" width="100px"
 				ng-src={{usuario.image}} alt="Foto do usuário">
-			</a>
 		</div>
 		<div class="media-body">
 			<h2 class="media-heading">{{usuario.nome}}
