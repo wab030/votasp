@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var mongodb = require('mongodb');
 var objectId = require('mongodb').ObjectId;
 var multiparty = require('connect-multiparty');
+var expressSession = require('express-session'); //Criar sessões autenticadas
 
 var app = express();
 
@@ -10,6 +11,11 @@ var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(multiparty());
+app.use(expressSession({
+	secret:'lkdjfldkjfldksjfdljf',
+	resave: false,
+	saveUninitialized: false
+}));
 
 var port = 8080;
 app.listen(port);
@@ -49,7 +55,6 @@ app.post('/api', function(req, res){
 	var dados = req.body; //body-parser fazer isso
 	
 	console.log(dados); 
-
 	
 	db.open(function(err, mongoclient){
 		mongoclient.collection('usuarios', function(err, collection){
@@ -122,6 +127,49 @@ app.delete('/api/:id', function(req, res){
 				mongoclient.close();
 
 			});
+		});
+	});
+});
+
+app.post('/autenticar', function(req, res){
+
+	usuario = req.body;
+	console.log(usuario);
+	console.log("Passei pelo app/autenticar");
+	res.setHeader("Access-Control-Allow-Origin","*");
+
+	db.open( function(err, mongoclient){
+		mongoclient.collection('usuarios', function(err, collection){
+			collection.find(usuario).toArray(function(err, results){
+				if(err){
+					res.json(err);
+				} else{
+					if(results[0] != undefined){
+						res.json({autorizado:true});
+					} else{
+						res.json({autorizado:false});
+					}
+				}
+				mongoclient.close();
+			}); 
+		});
+	});
+});
+
+app.get('/questoes', function(req, res){
+
+	res.setHeader("Access-Control-Allow-Origin","*");
+	db.open( function(err, mongoclient){
+		mongoclient.collection('questoes', function(err, collection){
+			collection.find().toArray(function(err, results){
+				if(err){
+					res.json(err);
+				} else{
+					res.json(results);
+				}
+				mongoclient.close();
+
+			}); 
 		});
 	});
 });

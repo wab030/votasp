@@ -22,6 +22,26 @@ angular.module('votaspApp')
 		return $http.post(baseURL+"api/", data );
 	};
 
+	usuariosFac.removeUsuario = function(indice){
+		return $http.delete(baseURL+"api/"+indice);
+	};
+
+	usuariosFac.autenticarUsuario = function(data){
+		console.log("cheguei no services autenticar");
+		console.log(data);
+		return $http.post(baseURL+"autenticar/", data);
+	};
+
 	return usuariosFac;
 
-}]);
+}])
+.factory('questoesFactory', ['$resource', '$http', 'baseURL', function($resource, $http, baseURL){
+
+	var questoesFac = {};
+	questoesFac.getQuestoes = function(){
+		return $http.get(baseURL+"questoes/");
+	};
+
+	return questoesFac;
+}])
+;

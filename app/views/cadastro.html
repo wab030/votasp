@@ -56,12 +56,15 @@
 						<div class="form-group">
 							<label for="senha_confirma">Confirme a senha</label>
 							<div class="col-7">
-								<input type="password" class="form-control form-control-sm" id="senha_confirma" placeholder="Digite novamente sua senha" ng-model="senha_confirma" required>
-							</div>
+								<input type="password" class="form-control form-control-sm" id="senha_confirma" placeholder="Digite novamente sua senha" ng-model="senha_confirma" name="senha_confirma" ng-change="verificaSenha()" required>
+								<span ng-show="!senhasIdenticas && !formularioCadastro.senha_confirma.$pristine" class="text-danger help-block form-control-feedback">Senhas não são idênticas.</span>
 						</div>
 					</div>
 				</div>
 				<button type="submit" class="btn btn-dark" ng-disabled="formularioCadastro.$invalid" id="btnformulario">Enviar</button><br><br>
+				<div class="alert alert-success" ng-if="exibeMensagem">
+  					{{message}}
+				</div>
 			</form>
 		</div>
 	</div>

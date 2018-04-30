@@ -57,6 +57,24 @@ angular.module('votaspApp',['ui.router', 'ngResource'])
          		controller  : 'UsuarioController'
          	}
          }
+      })
+      .state('app.removeUsuario', {
+      	url: 'usuario/:id',
+         views: {
+         	'content@': {
+         		templateUrl : 'views/usuario.html',
+         		controller  : 'RemoveUsuarioController'
+         	}
+         }
+      })
+      .state('app.questoes', {
+      	url: 'questoes/',
+         views: {
+         	'content@': {
+         		templateUrl : 'views/questoes.html',
+         		controller : 'QuestoesController'
+         	}
+         }
       });
 
 		$urlRouterProvider.otherwise('/');

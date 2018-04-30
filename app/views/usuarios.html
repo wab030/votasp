@@ -1,47 +1,35 @@
-	<div class="container">
-		<p style="padding:30px 0px 0px 0px">usuários </p>
-		<div class="row row-content" ng-controller="UsuariosController">
-			<div class="col-xs-12" ng-if="!showUsers">
-				<h3>{{message}}</h3>
-			</div>
-			<div class="col-xs-12" ng-if="showUsers">
-				<ul class="nav nav-tabs" role="tablist">
-					<li class="nav-item" ng-class="{active: isSelected(1)}" role="presentation">
-						<a ng-click="usuCtrl.select(1)" class="nav-link" aria-controls="todos usuarios" role="tab">Todos usuários</a>
-					</li>
-					<li class="nav-item" ng-class="{active: isSelected(2)}" role="presentation">
-						<a ng-click="usuCtrl.select(2)" class="nav-link" aria-controls="usuarios" role="tab">Somente usuários sem candidatos</a>
-					</li>
-					<li class="nav-item" ng-class="{active: isSelected(3)}" role="presentation">
-						<a ng-click="usuCtrl.select(3)" class="nav-link" aria-controls="candidatos a deputado estadual" role="tab">Candidatos a deputado estadual</a>
-					</li>
-					<li class="nav-item" ng-class="{active: isSelected(4)}" role="presentation">
-						<a ng-click="usuCtrl.select(4)" class="nav-link" aria-controls="candidatos a deputado federal" role="tab">Candidatos a deputado federal</a>
-					</li>	
-				</ul>
-				<div ng-show="usuCtrl.isSelected(4)">
-					Estou aqui. 
-				</div>
-				<div class="tab-content">
-					<!--ul class="media-list fade fade in active">-->
-					<ul class="media-list">
-						<li class="media" ng-repeat="usuario in usuarios">
-							<!--<div  ng-show="usuCtrl.tab==usuario.candidato">-->
-								<div class="media-left media-middle">
-									<a ui-sref="app.usuario({id: usuario._id})">
-										<img class="media-object img-thumbnail" width="100px"
-										ng-src={{usuario.image}} alt="Foto do usuário">
-									</a>
-								</div>
-								<div class="media-body">
-									<h2 class="media-heading">{{usuario.nome}}
-										<span class="badge">{{usuario.email}}</span></h2>
-										<p>{{usuario.profissao}}</p>
-										<p>{{usuario._id}}</p>
-									</div>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
+<div class="container">
+	<p style="padding:30px 0px 0px 0px"></p>
+	<div class="row row-content" ng-controller="UsuariosController">
+		<div class="col-xs-12" ng-if="!showUsers">
+			<h3>{{message}}</h3>
+		</div>
+		<div class="col-xs-12" ng-if="showUsers">
+			<h2>Usuários Cadastrados</h2>
+			<table class="table table-bordered table-hover table-striped">
+				<tr>
+					<td>Nome</td>
+					<td>Id</td>
+					<td>Remover</td>
+				</tr>
+				<p>{{usuarios}}</p>
+				<tr ng-repeat="usuario in usuarios">
+					<td>{{usuario.nome}}</td>
+					<td>{{usuario._id}}</td>
+					<td><a ui-sref="app.removeUsuario({id: usuario._id})" class="btn btn-danger" role="button">x</a></td>
+				</tr>
+			</table>
+
+
+
+			<ul class="media-list">
+				<li class="media" ng-repeat="usuario in usuarios">
+					<a ui-sref="app.removeUsuario({id: usuario._id})" class="btn btn-danger" role="button">x</a>
+					<span>_</span>
+					<h6 class="media-heading">{{usuario.nome}}<span>---</span>{{usuario._id}}</h6>
+
+				</li>
+			</ul>
+		</div>
 	</div>
+</div>

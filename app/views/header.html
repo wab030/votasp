@@ -20,8 +20,21 @@
 					<a  class="nav-link" ui-sref="app.contato">Contato</a>
 				</li>
 			</ul>
-			<a type="button" class="btn btn-dark" href="#/">Entrar</a>
-			<span>.</span>
+			<div ng-controller="LoginController">
+				<form class="needs-validation form-inline" role="form" name="formularioLogin" ng-submit="entrar()" novalidate>
+					<div class="form-group">
+						<input type="text" name="email" id="email" class="form-control" placeholder="E-mail" ng-model="login.email" required><span>.</span>
+					</div>
+					<div class="form-group">
+						<input type="password" name="senha" id="senha" class="form-control" placeholder="Senha" ng-model="login.senha" required>
+					</div><span>.</span>
+					<div class="form-group">
+						<button type="submit" class="btn btn-dark" ng-disabled="formularioLogin.$invalid" id="btnlogin">Entrar</button>
+						<!--<a type="button" class="btn btn-dark" ui-sref="app.autenticar" ng-disabled="formularioLogin.$invalid" id="btnlogin">Entrar</a>-->
+					</div>
+					<span>.</span>
+				</form>
+			</div>
 			<a type="button" class="btn btn-dark" ui-sref="app.cadastro">Cadastre-se</a>
 
 		</div>
