@@ -135,7 +135,7 @@ angular.module('votaspApp')
 	$scope.login = {
 		email:'',
 		senha:''
-	}
+	};
 	$scope.autorizado = false;
 
 	$scope.entrar = function(){
@@ -155,11 +155,10 @@ angular.module('votaspApp')
 				$scope.message = "Error: "+response.status + " " + response.statusText;
 			}
 		);
-	}
+	};
 }])
 .controller('QuestoesController', ['$scope', 'questoesFactory', function($scope, questoesFactory){
-	console.log("Passei pelo questões controller");
-
+	
 	$scope.questoes = {};
 	$scope.showQuestoes = true;
 	$scope.message = "Carregando...";
@@ -169,16 +168,41 @@ angular.module('votaspApp')
 	.then(
 		function(response){
 			$scope.questoes = response.data;
-			console.log($scope.questoes[0].questao);
-			for(questao in $scope.questoes){
-				console.log(questao.questao);
-				console.log(questao);
-			}
 		},
 		function(response){
 			$scope.message = "Error: "+response.status + " " + response.statusText;
 		}
 	);
+
+	$scope.enviaQuestoes = function(){
+		// Validar campos
+		$scope.form = false;
+		console.log("passei pelo envia questoes");
+
+		/*
+		usuariosFactory.postQuestoes($scope.cadastro)
+		.then(
+		function(response){
+			console.log(response);
+			//console.log("Usuario Gravado com Sucesso");
+			$scope.exibeMensagem = true;
+			$scope.message = "Usuário gravado com sucesso !!!";
+		},
+		function(response){
+			console.log(response);
+			$scope.message = "Error: "+response.status + " " + response.statusText;
+		});
+		
+			$scope.cadastro = {
+				nome: '',
+				email: '',
+				profissao: '',
+				senha: '',
+				candidato: ''
+			};
+			$scope.formularioCadastro.$setPristine(); //Seta o formulário para sua versão inicial sem dados
+		} */
+	};
 
 }])
 ;
