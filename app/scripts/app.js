@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('votaspApp',['ui.router', 'ngResource'])
-.config(function($stateProvider, $urlRouterProvider){
+angular.module('votaspApp',['ui.router', 'ngResource', 'auth0.auth0'])
+.config(function($stateProvider, $urlRouterProvider, $locationProvider, angularAuth0Provider ){
 	$stateProvider
 		.state('app', {
 			url:'/',
@@ -17,6 +17,14 @@ angular.module('votaspApp',['ui.router', 'ngResource'])
 				}
 			}
 		})
+		.state('app.callback', {
+        url: 'callback',
+        views:{
+				'content@':{
+					templateUrl:'views/projeto.html'
+				}
+			}
+      })
 		.state('app.projeto', {
 			url:'projeto',
 			views:{
@@ -77,6 +85,18 @@ angular.module('votaspApp',['ui.router', 'ngResource'])
          }
       });
 
-		$urlRouterProvider.otherwise('/');
-})
-;
+      $urlRouterProvider.otherwise('/');
+
+      angularAuth0Provider.init({ //auth0
+      	clientID: 'k_f7zd2It4nV1hDVtc2UpXbWxhjrsAZc',
+      	domain: 'bordignon.auth0.com',
+      	responseType: 'token id_token',
+      	audience: 'https://bordignon.auth0.com/userinfo',
+      	redirectUri: 'http://localhost:3000/callback',
+      	scope: 'openid'
+      });
+
+      $locationProvider.hashPrefix(''); //Auth0
+      //$locationProvider.html5Mode(true); //Auth0
+
+}); 

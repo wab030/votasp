@@ -78,7 +78,7 @@ angular.module('votaspApp')
 	$scope.enviarCadastro = function(){
 		// Validar campos
 		$scope.form = false;
-		if( $scope.senha == $scope.senha_confirma){
+		if( $scope.senha === $scope.senha_confirma){
 			usuariosFactory.postUsuario($scope.cadastro)
 			.then(
 				function(response){
@@ -123,16 +123,22 @@ angular.module('votaspApp')
 			//console.log(response);
 			//console.log("Usuario Gravado com Sucesso");
 			$scope.exibeMensagem = true;
-			$scope.message = "Usuário gravado com sucesso !!!";
+			$scope.message = "Usuário removido com sucesso !!!";
 		},
 		function(response){
 			$scope.message = "Error: "+response.status + " " + response.statusText;
 		}
 	);
 }])
-.controller('LoginController', ['$scope','$stateParams','$location','usuariosFactory', function($scope, $stateParams, $location, usuariosFactory){
+.controller('LoginController', ['$scope','$stateParams','$location','usuariosFactory', 'authService', function($scope, $stateParams, $location, usuariosFactory, authService){
 	
-	$scope.login = {
+
+	$scope.login = function(){
+		authService.login();
+	}
+
+
+	/*$scope.login = {
 		email:'',
 		senha:''
 	};
@@ -155,7 +161,7 @@ angular.module('votaspApp')
 				$scope.message = "Error: "+response.status + " " + response.statusText;
 			}
 		);
-	};
+	};*/
 }])
 .controller('QuestoesController', ['$scope', 'questoesFactory', function($scope, questoesFactory){
 	
@@ -163,7 +169,8 @@ angular.module('votaspApp')
 	$scope.showQuestoes = true;
 	$scope.message = "Carregando...";
 	$scope.numQuestao = 1;
-
+	//$scope.respostas = {};
+	
 	questoesFactory.getQuestoes()
 	.then(
 		function(response){
@@ -178,7 +185,10 @@ angular.module('votaspApp')
 		// Validar campos
 		$scope.form = false;
 		console.log("passei pelo envia questoes");
-
+		//console.log($scope.respostas);
+		console.log($scope.respostas['50']);
+		console.log($scope.respostas);
+	
 		/*
 		usuariosFactory.postQuestoes($scope.cadastro)
 		.then(

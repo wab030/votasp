@@ -14,10 +14,10 @@
 				<tr ng-repeat="q in questoes">
 					<td>{{q.numero}}</td>
 					<td>{{q.questao}}</td>
-					<td class="text-center"><input type="radio" name="{{q.numero}}" dynamic-model="'questoes._'+q.numero"></td>
-					<td class="text-center"><input type="radio" name="{{q.numero}}"></td>
-					<td class="text-center"><input type="radio" name="{{q.numero}}"></td>
-					<td class="text-center"><input type="radio" name="{{q.numero}}"></td>
+					<td class="text-center"><input type="radio" name="{{q.numero}}" ng-model="respostas['{{q.numero}}']"></td>
+					<td class="text-center"><input type="radio" name="{{q.numero}}" ng-model="respostas['{{q.numero}}']"></td>
+					<td class="text-center"><input type="radio" name="{{q.numero}}" ng-model="respostas['{{q.numero}}']"></td>
+					<td class="text-center"><input type="radio" name="{{q.numero}}" ng-model="respostas['{{q.numero}}']"></td>
 				</tr>
 			</div>
 		</table>
