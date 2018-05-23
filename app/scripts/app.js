@@ -92,7 +92,7 @@ angular.module('votaspApp',['ui.router', 'ngResource', 'auth0.auth0'])
       	domain: 'bordignon.auth0.com',
       	responseType: 'token id_token',
       	audience: 'https://bordignon.auth0.com/userinfo',
-      	redirectUri: 'http://localhost:3000/callback',
+      	redirectUri: 'http://localhost:3000/#/questoes/',
       	scope: 'openid'
       });
 

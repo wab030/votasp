@@ -132,10 +132,16 @@ angular.module('votaspApp')
 }])
 .controller('LoginController', ['$scope','$stateParams','$location','usuariosFactory', 'authService', function($scope, $stateParams, $location, usuariosFactory, authService){
 	
+	$scope.autenticado = false;
 
 	$scope.login = function(){
 		authService.login();
+		$scope.autenticado = authService.isAuthenticated();
+		console.log($scope.autenticado);;
 	}
+
+	
+
 
 
 	/*$scope.login = {
